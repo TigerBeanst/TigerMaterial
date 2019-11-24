@@ -1,0 +1,268 @@
+/*
+Theme Name: TigerMaterial
+Theme URI: https://jakting.com/archives/tigermaterial.html
+Author: hjthjthjt
+Author URI: https://jakting.com
+Description: Another Material Design WordPress Theme.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: white, light, one-column, material
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* 消除元素 */
+.tm-nav-gone {
+    display: none;
+    margin-bottom: 60px;
+}
+
+/* 首页 */
+.tm-index {
+    display: table;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.tm-top {
+    padding-top: 165px;
+}
+
+.tm-mobile {
+    padding-top: 40px;
+}
+
+
+/* 首页头部 */
+.tm-header {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+
+.tm-headar-right {
+    height: 100%;
+}
+
+.tm-index-img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.tm-index-avatar {
+    width: 32px !important;
+    height: auto !important;
+}
+
+.tm-index-img-side {
+    width: 200px !important;
+}
+
+/* 抽屉 */
+.tm-sidebar-img {
+    width: 100%;
+}
+
+.tm-sidebar-img-avatar {
+    width: 40px !important;
+}
+
+
+#menu-nav > li > a > .mdui-icon, .mdx-sub-menu-a > .mdui-icon {
+    margin-right: 20px;
+}
+
+.menu-item > a {
+    font-size: 16px;
+    width: 100%;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a > span {
+    position: absolute;
+    margin-top: 5px;
+}
+
+/* 工具栏 */
+#tm-toolbar {
+    z-index: 99;
+}
+
+
+/* 首页文章主循环 */
+.tm-index-archives {
+
+}
+
+.tm-index-single {
+    margin-bottom: 50px;
+}
+
+.tm-index-single-img {
+    height: 250px;
+    position: relative;
+    align-content: center;
+    overflow: hidden;
+}
+
+.tm-index-single-img > img {
+    position: absolute;
+    overflow: hidden;
+    min-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.tm-index-single-title {
+    text-decoration: none;
+}
+
+.tm-chip-icon {
+    top: 6px !important;
+    left: 6px !important;
+    font-size: 20px !important;
+}
+
+/* 文章循环 */
+.tm-single-end-blockquote {
+    border-left: 4px solid rgba(10, 7, 7, 0.42) !important;
+    line-height: 1 !important;
+    margin-left: 0px !important;
+    margin-top: 50px !important;
+}
+
+.tm-single-end-blockquote p {
+    font-size: 15px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+
+#toc_container {
+    float: right;
+}
+
+.toc_list a {
+    text-decoration: none;
+}
+
+
+/* 底部 */
+.tm-footer {
+    height: 40px;
+    padding: 50px 100px;
+}
+
+.tm-footer a, .mdui-typo a {
+    color: #424242 !important;
+}
+
+.tm-footer a:before, .mdui-typo a:before {
+    background-color: #424242 !important;
+}
+
+/* 手机 */
+@media screen and (max-width: 840px) {
+    .tm-footer {
+        height: 100px;
+        padding: 50px 0px;
+    }
+
+    .footer-develop-div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tm-footer .mdui-float-left, .tm-footer .mdui-float-right, #toc_container {
+        float: none !important;
+    }
+
+    .tm-footer .mdui-m-l-5 {
+        margin-left: 0px !important;
+    }
+
+    #tm-single-footer .mdui-float-left {
+        display: flex !important;
+    }
+
+    #tm-single-footer .mdui-float-right, .tm-single-time-none, .tm-chip-mobile {
+        display: none;
+    }
+
+    #tm-single-footer {
+        margin: 0 auto;
+    }
+
+    .tm-fab-toc {
+        bottom: 96px !important;
+        right: 10px !important;
+    }
+}
+
+pre.wp-block-code {
+    margin-left: -40px !important;
+    margin-right: -40px !important;
+}
+
+pre[class*="language-"] {
+    border-radius: 0 !important;
+}
+
+.tm-fab-toc {
+    bottom: 96px !important;
+    right: 32px !important;
+}
+
+.mdui-typo h2, .mdui-typo h3, .mdui-typo h4 {
+    font-weight: bold !important;
+}
+
+.tm-toc {
+    padding: 20px;
+    display: inline-block;
+    min-width: 250px!important;
+    width: auto;
+}
+
+.tm-toc ul, .tm-toc ul li {
+    text-align: left;
+    background: 0 0;
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.tm-toc ul ul {
+    margin-left: 1.5em!important;
+}
+.tm-spinner{
+    margin-top: 71px!important;
+    margin-bottom: 71px!important;
+}
+
+
