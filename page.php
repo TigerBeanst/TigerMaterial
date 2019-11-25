@@ -25,7 +25,7 @@ get_header();
                 </div>
                 <div class="mdui-card-actions mdui-color-white">
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-2 mdui-text-color-grey-600">
-                        <p><?php the_content(); ?></p>
+                        <p><?php echo tm_shortcode(get_the_content(null, false)); ?></p>
                         <blockquote class="tm-single-end-blockquote">
                             <p><b>本文采用 <a rel="nofollow noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC BY-NC-SA 3.0</a> 协议进行许可，在您遵循此协议的情况下，可以自由共享与演绎本文章。</b></p>
                             <p><b>本文链接：</b><a href="<?php the_permalink(); ?>"><?php the_permalink(); ?></a></p>

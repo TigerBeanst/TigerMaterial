@@ -26,7 +26,7 @@ get_header();
                 <div class="mdui-card-actions mdui-color-white">
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-4 mdui-text-color-grey-600">
                         <p><?php $content = article_toc(get_the_content(null, false));
-                            echo $content[0]; ?></p>
+                            echo $content[0];?></p>
                         <?php if(!$content[2]){//没有目录?>
                         <button id="toTop"
                                 class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-grey-700" mdui-fab="{trigger: 'click'}"><i

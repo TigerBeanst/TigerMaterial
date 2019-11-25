@@ -9,6 +9,7 @@ $optionsfile = locate_template('options.php');
 load_template($optionsfile);
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 include('optionjs.php');
+include('shortcode.php');
 
 //邮件通知 by Qiqiboy
 function comment_mail_notify($comment_id)
@@ -228,6 +229,7 @@ function clear_db_cache_archives_list()
 
 add_action('save_post', 'clear_db_cache_archives_list'); // 新发表文章/修改文章时
 
+
 //文章目录TOC
 function article_toc($content)
 {
@@ -237,7 +239,6 @@ function article_toc($content)
      * 博客：https://jakting.com/
      * 修改时间：2019年10月15日
      */
-
     $reg_title = '/<h(.*?)>(.*?)<\/h.*?>/';
     $content_toc = "<ul class=\"toc_list\">";
     $title_1 = 0;
@@ -249,7 +250,8 @@ function article_toc($content)
     if ($count == 0) {
         //没有
         $flag = false;
-        $return = array(null, null,$flag);
+        $content = tm_shortcode($content);
+        $return = array($content, null,$flag);
     } else {
         //有
         function str_replace_limit($search, $replace, $subject, $limit = 1)
@@ -300,8 +302,7 @@ function article_toc($content)
         if ($title_3 != 0) $content_toc .= "</ul></li>";
         if ($title_2 != 0) $content_toc .= "</ul></li>";
         $content_toc .= "</ul>";
-        $content = apply_filters('the_content', $content);
-        $content = str_replace(']]>', ']]&gt;', $content);
+        $content = tm_shortcode($content);
         $flag = true;
         //修改文章内部链接完成
         $return = array($content, $content_toc,$flag);
@@ -386,7 +387,6 @@ function TM_GetUserAgent($ua)
     }
     return $os . " | " . $br;
 }
-
 //自定义评论列表模板，来自 https://dedewp.com/17366.html
 function zmblog_comment($comment, $args, $depth)
 {
