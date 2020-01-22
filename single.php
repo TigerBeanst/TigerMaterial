@@ -25,8 +25,9 @@ get_header();
                 </div>
                 <div class="mdui-card-actions mdui-color-white">
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-4 mdui-text-color-grey-600">
+                        <span class = "byline-name" style="display: none"><?php the_author();?></span>
                         <p><?php $content = article_toc(get_the_content(null, false));
-                            echo $content[0];?></p>
+                            echo the_content();?></p>
                         <?php if(!$content[2]){//没有目录?>
                         <button id="toTop"
                                 class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-grey-700" mdui-fab="{trigger: 'click'}"><i
@@ -84,7 +85,7 @@ get_header();
                                     <span class="mdui-chip-icon"><i
                                                 class="mdui-icon material-icons tm-chip-icon">update</i></span>
                                 <span class="mdui-chip-title"><span
-                                            class="tm-single-time-none">更新时间：</span><?php the_modified_time('M d, Y') ?></span>
+                                            class="tm-single-time-none">更新时间：</span><span class="dateline"><?php the_modified_time('M d, Y') ?></span></span>
                             </div>
                         </div>
                         <div class="mdui-float-right">

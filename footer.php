@@ -5,6 +5,10 @@
                 class="mdui-icon material-icons">expand_less</i>
     </button>
 <?php } ?>
+<script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/mdui.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/infinite-ajax-scroll.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/style-before.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/scrollToTop.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/style.js"></script>
 <script>

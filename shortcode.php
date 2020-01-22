@@ -2,6 +2,15 @@
 //MDUI短代码
 function tm_shortcode($content)
 {
+    //代码
+    $content = str_replace(
+        array('[c]','[/c]'),
+        array(
+            '<code>',
+            '</code>',
+        ),
+        $content);
+
     //可扩展面板
     $content = str_replace(
         array('[br]', '[panel]', '[/panel]', '[panel-title]', '[panel-title-open]', '[/panel-title]', '[panel-content]', '[/panel-content]'),
@@ -40,6 +49,14 @@ function tm_shortcode($content)
             '<label class="mdui-checkbox"><input type="checkbox" disabled checked/><i class="mdui-checkbox-icon"></i>',
             '<label class="mdui-checkbox"><input type="checkbox" disabled/><i class="mdui-checkbox-icon"></i>',
             '</label>',
+        ),
+        $content);
+
+    //Font Awesome
+    $content = str_replace(
+        array('[fontawesome]'),
+        array(
+            '<link rel="stylesheet" href="'.get_bloginfo("template_url").'/fontawesome/css/all.min.css">',
         ),
         $content);
 

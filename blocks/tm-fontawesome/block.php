@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="<?php bloginfo("template_url");?>/fontawesome/css/all.min.css">

@@ -1,8 +1,6 @@
 <?php
 get_header();
 ?>
-<script src="<?php bloginfo('template_url'); ?>/js/infinite-ajax-scroll.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/style-before.js"></script>
 <body class="mdui-color-grey-300">
 <?php wp_body_open(); ?>
 <div class="tm-index mdui-center mdui-clearfix">

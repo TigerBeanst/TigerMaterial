@@ -10,19 +10,17 @@
     <meta name="keywords" content="<?php echo getTigerMaterial('seo_author'); ?>">
     <meta name="author" content="<?php echo getTigerMaterial('seo_author'); ?>">
     <?php if(is_single()||is_page()){ ?>
-        <meta property="og:title" content="<?php the_title(); ?>"/>
-        <meta property="og:description" content="<?php the_excerpt(); ?>"/>
-        <meta property="og:site_name" content="<?php bloginfo("name"); ?>"/>
+    <meta property="og:title" name="title" content="<?php the_title(); ?>"/>
+    <meta property="og:description" content="<?php the_excerpt(); ?>"/>
+    <meta property="og:site_name" content="<?php bloginfo("name"); ?>"/>
     <?php }else{ ?>
-        <meta property="og:title" content="<?php bloginfo("name"); ?>"/>
-        <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
+    <meta property="og:title" content="<?php bloginfo("name"); ?>"/>
+    <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
     <?php } ?>
     <meta name="description" itemprop="description" content="<?php echo getTigerMaterial('seo_description'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/mdui.min.css">
-    <script src="<?php bloginfo('template_url'); ?>/js/mdui.min.js"></script>
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
     <?php if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

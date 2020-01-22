@@ -9,7 +9,6 @@ $optionsfile = locate_template('options.php');
 load_template($optionsfile);
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 include('optionjs.php');
-include('shortcode.php');
 
 //邮件通知 by Qiqiboy
 function comment_mail_notify($comment_id)
@@ -29,6 +28,7 @@ function comment_mail_notify($comment_id)
 }
 
 add_action('comment_post', 'comment_mail_notify');
+
 function SimPaled_send_email($parent_id, $comment)
 {//发送邮件的函数 by Qiqiboy.com
     $admin_email = get_bloginfo('admin_email');//管理员邮箱
@@ -123,10 +123,10 @@ function my_enqueue_scripts()
 
 add_action('wp_enqueue_scripts', 'my_enqueue_scripts', 1);
 
-//使用 v2ex 源加速 Gravatar 头像
+//使用官方中文源加速 Gravatar 头像
 function replace_gravatar($avatar)
 {
-    $avatar = str_replace(array("//gravatar.com/", "//secure.gravatar.com/", "//www.gravatar.com/", "//0.gravatar.com/", "//1.gravatar.com/", "//2.gravatar.com/", "//cn.gravatar.com/"), "//cdn.v2ex.com/gr", $avatar);
+    $avatar = str_replace(array("//gravatar.com/", "//secure.gravatar.com/", "//www.gravatar.com/", "//0.gravatar.com/", "//1.gravatar.com/", "//2.gravatar.com/", "//cn.gravatar.com/"), "//cn.gravatar.com/", $avatar);
     return $avatar;
 }
 
@@ -250,8 +250,7 @@ function article_toc($content)
     if ($count == 0) {
         //没有
         $flag = false;
-        $content = tm_shortcode($content);
-        $return = array($content, null,$flag);
+        $return = array($content, null, $flag);
     } else {
         //有
         function str_replace_limit($search, $replace, $subject, $limit = 1)
@@ -302,10 +301,9 @@ function article_toc($content)
         if ($title_3 != 0) $content_toc .= "</ul></li>";
         if ($title_2 != 0) $content_toc .= "</ul></li>";
         $content_toc .= "</ul>";
-        $content = tm_shortcode($content);
         $flag = true;
         //修改文章内部链接完成
-        $return = array($content, $content_toc,$flag);
+        $return = array($content, $content_toc, $flag);
     }
     return $return;
 }
@@ -313,51 +311,10 @@ function article_toc($content)
 //UA显示
 function TM_GetUserAgent($ua)
 {
-    /* 操作系统 */
-    $os = "<i class='mdui-icon material-icons' style='font-size: 20px'> device_hub</i> UNKNOWN";
-
-    //Windows
-    $re = '/Windows NT (.*?);/';
-    $oss = null;
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        if ($os_matches[1][0] == "5.1") $oss = "XP";
-        if ($os_matches[1][0] == "6.0") $oss = "Vista";
-        if ($os_matches[1][0] == "6.1") $oss = "7";
-        if ($os_matches[1][0] == "6.2") $oss = "8";
-        if ($os_matches[1][0] == "6.3") $oss = "8.1";
-        if ($os_matches[1][0] == "10.0") $oss = "10";
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>laptop</i> Windows " . $oss;
-    }
-
-    //Linux
-    $re = '/; Linux (.*?)\)/';
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>phone_android</i> Linux";
-    }
-
-    //Mac OS X or macOS
-    $re = '/Macintosh; Intel Mac OS X (.*?)\)/';
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>laptop</i> macOS " . $os_matches[1][0];
-    }
-
-    //Android
-    $re = '/Android (.*?);/';
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>phone_android</i> Android " . $os_matches[1][0];
-    }
-
-    //iOS
-    $re = '/iPhone; CPU iPhone OS (.*?)like Mac OS X\)/';
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>phone_android</i> iPhone " . $os_matches[1][0];
-    }
-
-    //iPad OS
-    $re = '/iPad; CPU OS (.*?) like Mac OS X\)/';
-    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $os = "<i class='mdui-icon material-icons' style='font-size: 20px'>tablet</i> iPad " . $os_matches[1][0];
-    }
+    /*
+     * 由于未来 Chrome 将不再在 UA 中输出有关操作系统的字段以用于判断设备类型（PC还是手机），因此自此开始评论不再显示系统，只显示浏览器
+     * 详见：https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/-2JIRNMWJ7s/yHe4tQNLCgAJ
+     */
 
     /* 浏览器 */
     $br = "<i class='mdui-icon material-icons' style='font-size: 20px'> public</i> UNKNOWN";;
@@ -385,8 +342,9 @@ function TM_GetUserAgent($ua)
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
         $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Internet Explorer " . $os_matches[1][0];
     }
-    return $os . " | " . $br;
+    return $br;
 }
+
 //自定义评论列表模板，来自 https://dedewp.com/17366.html
 function zmblog_comment($comment, $args, $depth)
 {
