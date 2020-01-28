@@ -4,10 +4,11 @@ if (post_password_required())
     return;
 ?>
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/comments.css">
-<div id="comments" class="responsesWrapper mdui-typo-subheading mdui-m-a-1 mdui-text-color-grey-600">
+<div id="comments" class="responsesWrapper commentshow mdui-typo-subheading mdui-m-a-1 mdui-text-color-grey-600">
     <meta content="UserComments:<?php echo number_format_i18n(get_comments_number()); ?>" itemprop="interactionCount">
     <h3 class="comments-title">共有 <span
                 class="commentCount"><?php echo number_format_i18n(get_comments_number()); ?></span> 条评论</h3>
+    <div class="comments-loading">Loading...</div>
     <ol class="commentlist">
         <?php
         wp_list_comments(array(
@@ -19,7 +20,7 @@ if (post_password_required())
         ));
         ?>
     </ol>
-    <nav class="navigation comment-navigation u-textAlignCenter" data-fuck="<?php the_ID(); ?>">
+    <nav class="comment-navigation u-textAlignCenter" data-fuck="<?php the_ID(); ?>" id="comment-nav">
         <?php paginate_comments_links(array('prev_next' => true)); ?>
     </nav>
     <?php if (comments_open()) : ?>

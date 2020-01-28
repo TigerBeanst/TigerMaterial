@@ -34,3 +34,38 @@ var toTop = new ScrollToTop("#toTop", {
     speed: 50,
     fadeSpeed: 12
 });
+
+//目录跳转
+$('a').click(function (event) {
+    // 此处正则用于转换带页面URL的锚点，如 http://abc.html#div,具体正则格式据实际情况而定
+    var targetId = $(this).attr('href');
+    $("html,body").animate({scrollTop: $(targetId).offset().top}, 500);
+});
+
+//Ajax 评论翻页，来自 https://www.mzihen.com/wordpress-ajax-comments-pages/
+$(document).ready(function ($) {
+    $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');//commentnav ajax
+    $(document).on('click', '.comment-navigation a', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "GET",
+            url: $(this).attr('href'),
+            beforeSend: function () {
+                $('.comment-navigation').remove();
+                $('.commentlist').remove();
+                $('.comments-loading').slideDown();
+            },
+            dataType: "html",
+            success: function (out) {
+                result = $(out).find('.commentlist');
+                nextlink = $(out).find('.comment-navigation');
+                $('.comments-loading').slideUp(550);
+                $('.comments-loading').after(result.fadeIn(800));
+                $('.commentlist').after(nextlink);
+
+            }
+        });
+    });
+});
+
+

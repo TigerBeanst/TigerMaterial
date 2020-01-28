@@ -25,42 +25,38 @@ get_header();
                 </div>
                 <div class="mdui-card-actions mdui-color-white">
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-4 mdui-text-color-grey-600">
-                        <span class = "byline-name" style="display: none"><?php the_author();?></span>
-                        <p><?php $content = article_toc(get_the_content(null, false));
-                            echo the_content();?></p>
-                        <?php if(!$content[2]){//没有目录?>
-                        <button id="toTop"
-                                class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-grey-700" mdui-fab="{trigger: 'click'}"><i
-                                    class="mdui-icon material-icons">expand_less</i>
-                        </button>
-                        <?php }else{?>
-                        <div class="mdui-fab-wrapper" mdui-fab="{trigger: 'click'}">
-                            <button class="mdui-fab mdui-ripple mdui-color-grey-700">
-                                <i class="mdui-icon material-icons">bubble_chart</i>
-                                <i class="mdui-icon mdui-fab-opened material-icons">bubble_chart</i>
+                        <span class="byline-name" style="display: none"><?php the_author(); ?></span>
+                        <p><?php $content = article_toc(apply_filters( 'the_content', get_the_content()));
+                            //the_content();
+                            //echo apply_filters( 'the_content', get_the_content());
+                            echo $content[0]?></p>
+                        <?php if (!$content[2]) {//没有目录?>
+                            <button id="toTop"
+                                    class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-grey-700"
+                                    mdui-fab="{trigger: 'click'}"><i
+                                        class="mdui-icon material-icons">expand_less</i>
                             </button>
-                            <div class="mdui-fab-dial">
-                                <button id="toTop" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-grey-800"
-                                        mdui-fab="{trigger: 'click'}">
-                                    <i class="mdui-icon material-icons">expand_less</i></button>
-                                <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-grey-700"
-                                        mdui-menu="{target: '#toc',position:'top',align:'right',covered:false}"><i
-                                            class="mdui-icon material-icons">format_list_numbered</i>
+                        <?php } else { ?>
+                            <div class="mdui-fab-wrapper" mdui-fab="{trigger: 'click'}">
+                                <button class="mdui-fab mdui-ripple mdui-color-grey-700">
+                                    <i class="mdui-icon material-icons">bubble_chart</i>
+                                    <i class="mdui-icon mdui-fab-opened material-icons">bubble_chart</i>
                                 </button>
-                                <div class="mdui-menu tm-toc" id="toc">
-                                    <p><b>目录</b></p>
-                                    <?php echo $content[1]; ?>
+                                <div class="mdui-fab-dial">
+                                    <button id="toTop" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-grey-800"
+                                            mdui-fab="{trigger: 'click'}">
+                                        <i class="mdui-icon material-icons">expand_less</i></button>
+                                    <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-grey-700"
+                                            mdui-menu="{target: '#toc',position:'top',align:'right',covered:false}"><i
+                                                class="mdui-icon material-icons">format_list_numbered</i>
+                                    </button>
+                                    <div class="mdui-menu tm-toc" id="toc">
+                                        <p><b>目录</b></p>
+                                        <?php echo $content[1]; ?>
+                                    </div>
                                 </div>
-                                <script>
-                                    $('a').click(function(event) {
-                                        // 此处正则用于转换带页面URL的锚点，如 http://abc.html#div,具体正则格式据实际情况而定
-                                        var targetId = $(this).attr('href');
-                                        $("html,body").animate({scrollTop: $(targetId).offset().top}, 500);
-                                    });
-                                </script>
                             </div>
-                        </div>
-                        <?php }?>
+                        <?php } ?>
                         <blockquote class="tm-single-end-blockquote">
                             <p style="word-break:break-all;"><b>本文采用 <a rel="nofollow noopener"
                                                                         href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"
@@ -85,7 +81,8 @@ get_header();
                                     <span class="mdui-chip-icon"><i
                                                 class="mdui-icon material-icons tm-chip-icon">update</i></span>
                                 <span class="mdui-chip-title"><span
-                                            class="tm-single-time-none">更新时间：</span><span class="dateline"><?php the_modified_time('M d, Y') ?></span></span>
+                                            class="tm-single-time-none">更新时间：</span><span
+                                            class="dateline"><?php the_modified_time('M d, Y') ?></span></span>
                             </div>
                         </div>
                         <div class="mdui-float-right">

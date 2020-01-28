@@ -345,6 +345,42 @@ function TM_GetUserAgent($ua)
     return $br;
 }
 
+//Ajax 评论
+require('ajax-comment/main.php');
+/**
+ * 修改评论回复按钮链接
+ */
+global $wp_version;
+if (version_compare($wp_version, '5.1.1', '>=')) {
+    add_filter('comment_reply_link', 'haremu_replace_comment_reply_link', 10, 4);
+    function haremu_replace_comment_reply_link($link, $args, $comment, $post)
+    {
+        if (get_option('comment_registration') && !is_user_logged_in()) {
+            $link = sprintf(
+                '<a rel="nofollow" class="comment-reply-login" href="%s">%s</a>',
+                esc_url(wp_login_url(get_permalink())),
+                $args['login_text']
+            );
+        } else {
+            $onclick = sprintf(
+                'return addComment.moveForm( "%1$s-%2$s", "%2$s", "%3$s", "%4$s" )',
+                $args['add_below'],
+                $comment->comment_ID,
+                $args['respond_id'],
+                $post->ID
+            );
+            $link = sprintf(
+                "<a rel='nofollow' class='comment-reply-link' href='%s' onclick='%s' aria-label='%s'>%s</a>",
+                esc_url(add_query_arg('replytocom', $comment->comment_ID, get_permalink($post->ID))) . "#" . $args['respond_id'],
+                $onclick,
+                esc_attr(sprintf($args['reply_to_text'], $comment->comment_author)),
+                $args['reply_text']
+            );
+        }
+        return $link;
+    }
+}
+
 //自定义评论列表模板，来自 https://dedewp.com/17366.html
 function zmblog_comment($comment, $args, $depth)
 {
@@ -357,23 +393,24 @@ $GLOBALS['comment'] = $comment; ?>
             } ?>
         </div>
         <div class="media-body">
-            <?php printf(__('<p class="author_name">%s</p>'), get_comment_author_link()); ?>
-            <?php echo TM_GetUserAgent($comment->comment_agent); ?>
+            <?php printf(__('<p class="author_name">%s'), get_comment_author_link());
+            echo " " . TM_GetUserAgent($comment->comment_agent) . "</p>"; ?>
             <?php if ($comment->comment_approved == '0') : ?>
                 <em>评论等待审核...</em><br/>
             <?php endif; ?>
-            <div class="tm-comment-text"><?php comment_text(); ?></div>
-        </div>
-    </div>
-    <div class="comment-metadata">
+            <div class="comment-metadata">
    			<span class="comment-pub-time">
    				<?php echo get_comment_time('Y-m-d H:i'); ?>
    			</span>
-        <span class="comment-btn-reply">
+                <span class="comment-btn-reply">
  				<i class="mdui-icon material-icons"
                    style="font-size: 16px">reply</i> <?php comment_reply_link(array_merge($args, array('reply_text' => '回复', 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?> <?php edit_comment_link(__('(Edit)'), '&nbsp;&nbsp;', ''); ?>
    			</span>
+            </div>
+            <div class="tm-comment-text"><?php comment_text(); ?></div>
+        </div>
     </div>
+
     <?php
     }
     ?>

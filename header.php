@@ -9,13 +9,13 @@
     <meta name="theme-color" content="<?php echo getTigerMaterial('tm_status_color'); ?>">
     <meta name="keywords" content="<?php echo getTigerMaterial('seo_author'); ?>">
     <meta name="author" content="<?php echo getTigerMaterial('seo_author'); ?>">
-    <?php if(is_single()||is_page()){ ?>
-    <meta property="og:title" name="title" content="<?php the_title(); ?>"/>
-    <meta property="og:description" content="<?php the_excerpt(); ?>"/>
-    <meta property="og:site_name" content="<?php bloginfo("name"); ?>"/>
-    <?php }else{ ?>
-    <meta property="og:title" content="<?php bloginfo("name"); ?>"/>
-    <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
+    <?php if (is_single() || is_page()) { ?>
+        <meta property="og:title" name="title" content="<?php the_title(); ?>"/>
+        <meta property="og:description" content="<?php the_excerpt(); ?>"/>
+        <meta property="og:site_name" content="<?php bloginfo("name"); ?>"/>
+    <?php } else { ?>
+        <meta property="og:title" content="<?php bloginfo("name"); ?>"/>
+        <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
     <?php } ?>
     <meta name="description" itemprop="description" content="<?php echo getTigerMaterial('seo_description'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -39,7 +39,7 @@
                         class="mdui-icon material-icons">search</i>
             </button>
         </a>
-        <form action="<?php bloginfo("url");?>">
+        <form action="<?php bloginfo("url"); ?>">
             <input type="text" id="search" class="mdui-textfield-input" name="s"
                    results="0" placeholder="搜索">
         </form>

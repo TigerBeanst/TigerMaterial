@@ -245,7 +245,7 @@ pre[class*="language-"] {
 .tm-toc {
     padding: 20px;
     display: inline-block;
-    min-width: 250px!important;
+    min-width: 250px !important;
     width: auto;
 }
 
@@ -257,12 +257,27 @@ pre[class*="language-"] {
     margin: 0;
     padding: 0;
 }
+
 .tm-toc ul ul {
-    margin-left: 1.5em!important;
+    margin-left: 1.5em !important;
 }
-.tm-spinner{
-    margin-top: 71px!important;
-    margin-bottom: 71px!important;
+
+.tm-spinner {
+    margin-top: 71px !important;
+    margin-bottom: 71px !important;
+}
+
+.page-numbers {
+    text-decoration: none !important;
+}
+
+
+.comments-loading {
+    display: none;
+    background: none !important;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 
