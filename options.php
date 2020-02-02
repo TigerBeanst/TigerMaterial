@@ -107,6 +107,14 @@ function optionsframework_options() {
         'type' => 'text'
     );
 
+    $options[] = array(
+        'name' => __('Gravatar 头像加速', 'theme-textdomain'),
+        'desc' => __('请填入加速域名，比如七牛之类的。末尾请不要带有 / 。<b>默认为 cn.gravatar.com</b>', 'theme-textdomain'),
+        'id' => 'tm_gravatar',
+        'std' => 'cn.gravatar.com',
+        'type' => 'text'
+    );
+
 	$options[] = array(
 		'name' => __('Creative Commons 授权方式', 'theme-textdomain'),
 		'desc' => __('请填入所选择的 CC 授权方式，最终会在网页底部及文章结尾出现。<b>默认为 CC BY-NC-SA 3.0</b>', 'theme-textdomain'),

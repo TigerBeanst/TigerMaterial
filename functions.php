@@ -126,7 +126,7 @@ add_action('wp_enqueue_scripts', 'my_enqueue_scripts', 1);
 //使用官方中文源加速 Gravatar 头像
 function replace_gravatar($avatar)
 {
-    $avatar = str_replace(array("//gravatar.com/", "//secure.gravatar.com/", "//www.gravatar.com/", "//0.gravatar.com/", "//1.gravatar.com/", "//2.gravatar.com/", "//cn.gravatar.com/"), "//cn.gravatar.com/", $avatar);
+    $avatar = str_replace(array("//gravatar.com/", "//secure.gravatar.com/", "//www.gravatar.com/", "//0.gravatar.com/", "//1.gravatar.com/", "//2.gravatar.com/", "//cn.gravatar.com/"), "//".getTigerMaterial('tm_gravatar')."/", $avatar);
     return $avatar;
 }
 

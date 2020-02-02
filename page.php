@@ -26,8 +26,8 @@ get_header();
                 <div class="mdui-card-actions mdui-color-white">
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-4 mdui-text-color-grey-600">
                         <span class="byline-name" style="display: none"><?php the_author(); ?></span>
-                        <p><?php $content = article_toc(get_the_content(null, false));
-                            echo the_content(); ?></p>
+                        <p><?php $content = article_toc(apply_filters( 'the_content', get_the_content()));
+                            echo $content[0]?></p>
                         <?php if (!$content[2]) {//没有目录?>
                             <button id="toTop"
                                     class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-grey-700"
@@ -105,7 +105,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <?php comments_template(); ?>
             </div>
         <?php endwhile; ?>
         <?php endif; ?>

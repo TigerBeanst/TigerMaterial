@@ -27,8 +27,6 @@ get_header();
                     <div class="mdui-typo mdui-typo-subheading mdui-m-a-4 mdui-text-color-grey-600">
                         <span class="byline-name" style="display: none"><?php the_author(); ?></span>
                         <p><?php $content = article_toc(apply_filters( 'the_content', get_the_content()));
-                            //the_content();
-                            //echo apply_filters( 'the_content', get_the_content());
                             echo $content[0]?></p>
                         <?php if (!$content[2]) {//没有目录?>
                             <button id="toTop"
