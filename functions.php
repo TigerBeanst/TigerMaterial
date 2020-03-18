@@ -1,4 +1,11 @@
 <?php
+//检查更新
+require 'theme-update/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://raw.githubusercontent.com/hjthjthjt/TigerMaterial/master/theme-update/theme.json',
+    __FILE__, //Full path to the main plugin file or functions.php.
+    'unique-plugin-or-theme-slug'
+);
 
 //去除管理员条
 show_admin_bar(false);
@@ -334,7 +341,7 @@ function TM_GetUserAgent($ua)
     }
 
     //Firefox
-    $re = "/Firefox\/(.*?)/i";
+    $re = "/Firefox\/(.*?)$/i";
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
         $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Firefox " . $os_matches[1][0];
     }
@@ -347,7 +354,7 @@ function TM_GetUserAgent($ua)
 }
 
 //Ajax 评论
-require('ajax-comment/main.php');
+require('js/ajax-comment/main.php');
 /**
  * 修改评论回复按钮链接
  */

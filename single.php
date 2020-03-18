@@ -56,9 +56,8 @@ get_header();
                             </div>
                         <?php } ?>
                         <blockquote class="tm-single-end-blockquote">
-                            <p style="word-break:break-all;"><b>本文采用 <a rel="nofollow noopener"
-                                                                        href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"
-                                                                        target="_blank">CC BY-NC-SA 3.0</a>
+                            <p style="word-break:break-all;"><b>本文采用 <a href="<?php echo getTigerMaterial('tm_cc_url', 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'); ?>"
+                                                                        target="_blank" class="footer-develop-a"><?php echo getTigerMaterial('tm_cc_name', 'CC BY-NC-SA 4.0'); ?></a>
                                     协议进行许可，在您遵循此协议的情况下，可以自由共享与演绎本文章。</b></p>
                             <p style="word-break:break-all;"><b>本文链接：</b><a
                                         href="<?php the_permalink(); ?>"><?php the_permalink(); ?></a></p>

@@ -32,12 +32,12 @@
     </div>
     <div class="mdui-float-right mdui-m-l-5">
         <div class="mdui-typo mdui-text-color-grey-500 tm-footer-a">
-            <div class="footer-develop-div">Copyright © <?php echo getTigerMaterial('found_year', '2012'); ?> - 2019
+            <div class="footer-develop-div">Copyright © <?php echo getTigerMaterial('found_year', '2012'); ?> - 2020
                 甲烃气瓶
             </div>
             <div class="footer-develop-div">本博客使用
                 <a href="<?php echo getTigerMaterial('tm_cc_url', 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'); ?>"
-                   target="_blank" class="footer-develop-a">CC BY-NC-SA 4.0</a> 进行许可
+                   target="_blank" class="footer-develop-a"><?php echo getTigerMaterial('tm_cc_name', 'CC BY-NC-SA 4.0'); ?></a> 进行许可
             </div>
         </div>
     </div>
