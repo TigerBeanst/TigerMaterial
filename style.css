@@ -4,7 +4,7 @@ Theme URI: https://jakting.com/archives/tigermaterial.html
 Author: hjthjthjt
 Author URI: https://jakting.com
 Description: Another Material Design WordPress Theme.
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: white, light, one-column, material
@@ -12,6 +12,11 @@ Tags: white, light, one-column, material
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+/*
+更新内容记录：
+1. 为文章和页面添加了快捷「编辑文章/页面」入口
+2. 为置顶文章添加标识
+ */
 
 /* 消除元素 */
 .tm-nav-gone {

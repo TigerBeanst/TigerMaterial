@@ -41,7 +41,7 @@ get_header();
                     <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
                         <div class="mdui-card-primary mdui-m-l-1">
                             <div class="mdui-card-primary-title"><a href="<?php the_permalink(); ?>"
-                                                                    class="mdui-text-color-white tm-index-single-title"><?php the_title(); ?></a>
+                                                                    class="mdui-text-color-white tm-index-single-title"><?php if(is_sticky()){echo "<i class=\"mdui-icon material-icons\">turned_in</i>";} the_title(); ?></a>
                             </div>
                         </div>
                     </div>

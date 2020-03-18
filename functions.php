@@ -1,4 +1,5 @@
 <?php
+
 //去除管理员条
 show_admin_bar(false);
 

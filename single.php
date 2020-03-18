@@ -18,7 +18,7 @@ get_header();
                     <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
                         <div class="mdui-card-primary mdui-m-l-1">
                             <div class="mdui-card-primary-title"><span
-                                        class="mdui-text-color-white tm-index-single-title"><?php the_title(); ?></span>
+                                        class="mdui-text-color-white tm-index-single-title"><?php the_title(); ?><?php edit_post_link('[<i class="mdui-icon material-icons mdui-typo-subheading">edit</i>编辑文章]', '<span>', '</span>',0,'mdui-typo-subheading tm-index-single-title mdui-text-color-white'); ?></span>
                             </div>
                         </div>
                     </div>

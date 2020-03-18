@@ -11,3 +11,4 @@ TigerMaterial 是一款基于 [MDUI](https://github.com/zdhxiong/mdui) 的 WordP
 
 ## 下载
 [Github Release](https://github.com/hjthjthjt/TigerMaterial/releases)
+[hjt's Cloud](https://cloud.jakting.com/#/s/j0SQ) （分享密码：`TigerMaterial`）
