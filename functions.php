@@ -2,7 +2,7 @@
 //检查更新
 require 'theme-update/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://raw.githubusercontent.com/hjthjthjt/TigerMaterial/master/theme-update/theme.json',
+    'https://api.jakting.com/wp/theme/TigerMaterial/theme.json',
     __FILE__, //Full path to the main plugin file or functions.php.
     'unique-plugin-or-theme-slug'
 );
@@ -331,24 +331,42 @@ function TM_GetUserAgent($ua)
     //Chrome
     $re = "/Chrome\/(.*?) S/i";
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Chrome " . $os_matches[1][0];
+        $br = "<i class=\"fab fa-chrome\"></i> Chrome " . $os_matches[1][0];
+    }
+
+    //Chrome Mobile & 各种基于 Chromium Mobile 的
+    $re = "/Chrome\/(.*?) Mobile/i";
+    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
+        $br = "<i class=\"fab fa-chrome\"></i> Chrome Mobile " . $os_matches[1][0];
+    }
+
+    //Edge
+    $re = "/Edge\/(.*?)$/i";
+    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
+        $br = "<i class=\"fab fa-edge\"></i> Edge " . $os_matches[1][0];
+    }
+
+    //Edge Chromium
+    $re = "/Edg\/(.*?)$/i";
+    if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
+        $br = "<i class=\"fab fa-edge\"></i> Edge Chromium " . $os_matches[1][0];
     }
 
     //Safari
     $re = "/Version\/.*?Safari\/(.*?)/i";
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Safari";
+        $br = "<i class=\"fab fa-safari\"></i> Safari";
     }
 
     //Firefox
     $re = "/Firefox\/(.*?)$/i";
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Firefox " . $os_matches[1][0];
+        $br = "<i class=\"fab fa-firefox-browser\"></i> Firefox " . $os_matches[1][0];
     }
     //Internet Explorer
-    $re = "/MSIE (.*?);/i";
+    $re = "/Trident.*?rv:(.*?)\.0/i";
     if (preg_match($re, $ua, $os_matches, PREG_OFFSET_CAPTURE, 0)) {
-        $br = "<i class='mdui-icon material-icons' style='font-size: 20px'>public</i> Internet Explorer " . $os_matches[1][0];
+        $br = "<i class=\"fab fa-internet-explorer\"></i> Internet Explorer " . $os_matches[1][0];
     }
     return $br;
 }

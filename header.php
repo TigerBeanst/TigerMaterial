@@ -32,6 +32,13 @@
 <div id="tm-toolbar" class="mdui-toolbar mdui-appbar-fixed mdui-appbar-scroll-hide">
     <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target:'#left-drawer',overlay:true,swipe:true}"><i
                 class="mdui-icon material-icons">menu</i></a>
+    <?php if (is_single() || is_page()) { ?>
+        <a href="<?php bloginfo('url'); ?>">
+            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon" mdui-tooltip="{content: '回到首页'}"><i
+                        class="mdui-icon material-icons">home</i>
+            </button>
+        </a>
+    <?php } ?>
     <div class="mdui-toolbar-spacer"></div>
     <div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
         <a>
@@ -52,13 +59,6 @@
                     class="mdui-icon material-icons">rss_feed</i>
         </button>
     </a>
-    <?php if (is_single() || is_page()) { ?>
-        <a href="<?php bloginfo('url'); ?>">
-            <button class="mdui-textfield-icon mdui-btn mdui-btn-icon" mdui-tooltip="{content: '回到首页'}"><i
-                        class="mdui-icon material-icons">home</i>
-            </button>
-        </a>
-    <?php } ?>
     <?php $user = get_user_by('id', 1); ?>
     <div class="mdui-chip mdui-m-r-2">
         <div style="margin-top: -13px">

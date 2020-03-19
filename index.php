@@ -84,3 +84,5 @@ get_header();
 <?php
 get_footer();
 ?>
+<script src="<?php bloginfo('template_url'); ?>/js/infinite-ajax-scroll.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/style-before.js"></script>

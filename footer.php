@@ -1,4 +1,5 @@
 <script src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
+
 <?php wp_footer(); ?>
 <?php if (!(is_single() || is_page())) { ?>
     <button id="toTop"
@@ -6,10 +7,8 @@
                 class="mdui-icon material-icons">expand_less</i>
     </button>
 <?php } ?>
-
+<link rel="stylesheet" href="<?php bloginfo("template_url");?>/fonts/fontawesome/css/all.min.css">
 <script src="<?php bloginfo('template_url'); ?>/js/mdui.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/infinite-ajax-scroll.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/style-before.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/scrollToTop.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/style.js"></script>
 </div>
@@ -25,7 +24,7 @@
                                                                            class="footer-develop-a"><?php echo getTigerMaterial('beian'); ?></a><?php } ?>
             </div>
             <div class="footer-develop-div">Theme -
-                <a href="https://github.com/hjthjthjt/TigerMaterial" target="_blank"
+                <a href="https://jakting.com/archives/tigermaterial.html" target="_blank"
                    class="footer-develop-a">TigerMaterial</a>
                 | <a href="https://jakting.com" target="_blank" class="footer-develop-a">Jartip</a></div>
         </div>

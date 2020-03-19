@@ -14,9 +14,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 /*
 更新内容记录：
-1. 为文章和页面添加了快捷「编辑文章/页面」入口
-2. 为置顶文章添加标识
+1. 全局引入 Font Awesome 图标字体
+2. 优化了评论 UA 匹配及其图标
  */
+
+@font-face {
+    font-display: swap!important;
+}
 
 /* 消除元素 */
 .tm-nav-gone {
@@ -148,9 +152,9 @@ body {
 }
 
 .tm-chip-icon {
-    top: 6px !important;
-    left: 6px !important;
-    font-size: 20px !important;
+    top: 5px !important;
+    left: 5px !important;
+    font-size: 22px !important;
 }
 
 /* 文章循环 */
