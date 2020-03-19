@@ -14,8 +14,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 /*
 更新内容记录：
-1. 全局引入 Font Awesome 图标字体
-2. 优化了评论 UA 匹配及其图标
+1. 从此版本开始，TigerMaterial 主题的升级将支持 WordPress 的检测更新
+2. 为文章和页面添加了快捷「编辑文章/页面」入口
+3. 全局引入 Font Awesome 图标字体
+4. 优化了评论 UA 匹配及其图标
+5. 为置顶文章添加标识
+6. 其他小的修改
  */
 
 @font-face {
