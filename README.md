@@ -12,7 +12,7 @@ TigerMaterial 是一款基于 [MDUI](https://github.com/zdhxiong/mdui) 的 Mater
 
 ## 特性
 - 基于 MDUI 框架的 Material Design 设计，将在未来支持暗色模式和主题切换
-- 支持 WordPress 的主题更新功能
+- 支持 WordPress 的主题更新功能（自v1.0.3起）
 - 支持文章目录，平滑跳转
 - 支持 Ajax 无限加载文章， Ajax 评论提交/翻页
 - 全局 Font Awesome 图标字体，可根据需要自行使用
@@ -40,6 +40,7 @@ TigerMaterial 并没有必须安装的插件（前提是使用古登堡编辑器
 **请务必阅读主题须知**
 
 ## 下载
+请使用已打包版本，Github 库源码极少处于可使用状态。
 [Github Release](https://github.com/hjthjthjt/TigerMaterial/releases)
 
 [hjt's Cloud](https://cloud.jakting.com/#/s/j0SQ) （分享密码：`TigerMaterial`）
